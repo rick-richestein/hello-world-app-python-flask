@@ -68,7 +68,7 @@ class Store(db.Model):
     access_token = db.Column(db.String(128), nullable=False)
     scope = db.Column(db.Text(), nullable=False)
     admin_storeuser_id = relationship("StoreUser",
-                                      primaryjoin="and_(StoreUser.store_id==Store.id, StoreUser.admin==True)",overlaps="admin_storeuser_id, Store.storeusers")
+                                      primaryjoin="and_(StoreUser.store_id==Store.id, StoreUser.admin==True)")
     storeusers = relationship("StoreUser", backref="store")
 
     def __init__(self, store_hash, access_token, scope):
